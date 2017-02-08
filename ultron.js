@@ -23,11 +23,13 @@ var ULTRON = ULTRON || new (function(_) {
 	}
 	
 	_.getCurrentPath = function() {
-		var scripts = document.getElementsByTagName("script");
-		for (var i = 0; i < scripts.length; i++) {
-			if (scripts[i].src && scripts[i].src.indexOf("ultron.js") > 0) {
-				_.CurrentPath = scripts[i].src.split("/").slice(0, -1).join("/") + "/";
-				break;
+		if (!_.CurrentPath) {
+			var scripts = document.getElementsByTagName("script");
+			for (var i = 0; i < scripts.length; i++) {
+				if (scripts[i].src && scripts[i].src.indexOf("ultron.js") > 0) {
+					_.CurrentPath = scripts[i].src.split("/").slice(0, -1).join("/") + "/";
+					break;
+				}
 			}
 		}
 		return _.CurrentPath;
