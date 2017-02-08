@@ -23,18 +23,21 @@ var ULTRON = ULTRON || new (function(_) {
 	}
 	
 	_.getCurrentPath = function() {
-		var $scripts = $("script[src*='ultron.js']");
-		if ($scripts.length > 0) {
-			_.CurrentPath = $scripts[0].src.split("/").slice(0, -1).join("/") + "/";
+		var scripts = document.getElementsByTagName("script");
+		for (var i = 0; i < scripts.length; i++) {
+			if (scripts[i].src && scripts[i].src.indexOf("ultron.js") > 0) {
+				_.CurrentPath = scripts[i].src.split("/").slice(0, -1).join("/") + "/";
+				break;
+			}
 		}
 		return _.CurrentPath;
 	}
 	
 	this.init = function() {
 		try {
+			_.getCurrentPath();
 			if (!window.$) {
-				_.injectScript("./jquery/jquery-3.1.1.min.js");
-				return _.delayCall(ULTRON.init, 5000);
+				_.injectScript(_.CurrentPath + "jquery/jquery-3.1.1.min.js");
 			}
 			_.getCurrentPath();
 			if (window.location) {
