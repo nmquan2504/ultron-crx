@@ -157,7 +157,7 @@ var fnAutoSearch = function() {
             return;
           }
           var path = "";
-          var $scripts = $("script[src*='auto.js']");
+          var $scripts = $("script[src*='inboxdollars.js']");
           if ($scripts.length > 0) {
             path = $scripts[0].src.split("/").slice(0, -1).join("/") + "/";
           }
