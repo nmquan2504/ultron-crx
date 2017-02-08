@@ -32,15 +32,14 @@ var ULTRON = ULTRON || new (function(_) {
 	
 	this.init = function() {
 		try {
+			_.getCurrentPath();
 			if (!window.$) {
-				return _.delayCall(ULTRON.init);
+				_.injectScript(_.CurrentPath + "jquery/jquery-3.1.1.min.js");
+				return _.delayCall(ULTRON.init, 5000);
 			}
-			
-			if (_.getCurrentPath()) {
-				if (window.location) {
-					if (window.location.host && window.location.host.indexOf("inboxdollars.com") >= 0) {
-						_.injectScript(_.CurrentPath + "inboxdollars/inboxdollars.js");
-					}
+			if (window.location) {
+				if (window.location.host && window.location.host.indexOf("inboxdollars.com") >= 0) {
+					_.injectScript(_.CurrentPath + "inboxdollars/inboxdollars.js");
 				}
 			}
 		}
