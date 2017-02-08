@@ -39,7 +39,6 @@ var ULTRON = ULTRON || new (function(_) {
 			if (!window.$) {
 				_.injectScript(_.CurrentPath + "jquery/jquery-3.1.1.min.js");
 			}
-			_.getCurrentPath();
 			if (window.location) {
 				if (window.location.host && window.location.host.indexOf("inboxdollars.com") >= 0) {
 					_.injectScript(_.CurrentPath + "inboxdollars/inboxdollars.js");
