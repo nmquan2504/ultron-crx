@@ -32,13 +32,13 @@ var ULTRON = ULTRON || new (function(_) {
 	
 	this.init = function() {
 		try {
-			if (!$) {
+			if (!window.$) {
 				return _.delayCall(ULTRON.init);
 			}
 			
 			if (_.getCurrentPath()) {
-				if (location) {
-					if (location.host && location.host.indexOf("inboxdollars.com") >= 0) {
+				if (window.location) {
+					if (window.location.host && window.location.host.indexOf("inboxdollars.com") >= 0) {
 						_.injectScript(_.CurrentPath + "inboxdollars/inboxdollars.js");
 					}
 				}
