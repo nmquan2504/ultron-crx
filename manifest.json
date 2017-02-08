@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+
+  "name": "Ultron Chrome Extension",
+  "description": "Ultron Chrome Extension",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+	"icons": { 
+	  "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png" 
+	}
+  },
+  
+  "background": {
+    "scripts": ["background.js"]
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"]
+    }
+  ],
+  
+  "permissions": [
+	"tabs",
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ],
+  
+  "web_accessible_resources": [
+    "auto.js"
+  ]
+}
