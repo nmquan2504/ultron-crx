@@ -165,6 +165,7 @@ ULTRON.INBOXDOLLARS = ULTRON.INBOXDOLLARS || new (function(_) {
 	};
 
 	this.init = function() {
+		console.log("Inboxdollars!");
 		_.disablePopup();
 		_.autoWatchTV();
 		_.autoSpin();
