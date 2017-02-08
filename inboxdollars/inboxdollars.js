@@ -1,6 +1,6 @@
 var ULTRON = ULTRON || {};
 
-var ULTRON.INBOXDOLLARS = ULTRON.INBOXDOLLARS || new (function(_) {
+ULTRON.INBOXDOLLARS = ULTRON.INBOXDOLLARS || new (function(_) {
 
 	_.disablePopup = function() {
 		try {
