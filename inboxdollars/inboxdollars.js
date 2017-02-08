@@ -12,7 +12,7 @@ ULTRON.INBOXDOLLARS = ULTRON.INBOXDOLLARS || new (function(_) {
 		}
 	};
 	
-	_.autoPlayTV = function() {
+	_.autoWatchTV = function() {
 		try {
 			if (location && location.host && location.host === "www.inboxdollars.com" && location.pathname && location.pathname.indexOf("/tv") >= 0) {
 				console.log("Auto TV!");
@@ -166,7 +166,7 @@ ULTRON.INBOXDOLLARS = ULTRON.INBOXDOLLARS || new (function(_) {
 
 	this.init = function() {
 		_.disablePopup();
-		_.autoPlayTV();
+		_.autoWatchTV();
 		_.autoSpin();
 		_.adjustRewardEntries();
 		_.autoSearch();
